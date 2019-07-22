@@ -1,0 +1,38 @@
+$color-invalid: red
+$color-valid: green
+$border: 1px
+$solid: solid
+$bg-sucesso: green
+$color-sucesso: white
+$align-sucesso: center
+$cursor: pointer
+    
+input.ng-invalid.ng-touched
+    border: $border $solid $color-invalid
+
+select.ng-invalid.ng-touched
+    border: $border $solid $color-invalid
+
+textarea.ng-invalid.ng-touched
+    border: $border $solid $color-invalid
+
+input.ng-valid.ng-touched
+    border: $border $solid $color-valid
+
+select.ng-valid.ng-touched
+    border: $border $solid $color-valid
+
+textarea.ng-valid.ng-touched
+    border: $border $solid $color-valid
+
+.msg-sucesso
+    color: $color-sucesso
+    background-color: $bg-sucesso
+    text-align: $align-sucesso
+
+.msg-sucesso a
+    color: $color-sucesso
+    cursor: pointer
+  
+.container 
+    margin-top: 20px

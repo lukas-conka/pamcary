@@ -1,0 +1,8 @@
+<ng-container *ngFor="let mensagem of mensagens">
+<div class="mensagens" (click)="clickHandlerMsg(mensagem)">
+    <p>{{mensagem.titulo}}
+      <br>
+      {{mensagem.hora}}
+    </p>
+  </div>
+</ng-container>

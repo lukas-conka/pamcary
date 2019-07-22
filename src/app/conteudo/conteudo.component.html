@@ -1,0 +1,27 @@
+
+<div *ngIf="mensagens.length <= 0">
+  <p>
+    Nenhuma mensagem cadastrada. Clique em MENU
+    <br>
+    DASHBOARD para cadastrar uma nova mensagem.
+
+  </p>
+</div>
+<div class="container">
+  <p class="titulo">
+    {{postagem.titulo}}
+  </p>
+  <p>
+    {{postagem.assunto}}
+  </p>
+  <p class="hora">
+    {{postagem.hora}}
+  </p>
+  <p>
+    {{postagem.conteudo}}
+  </p>
+  <p class="excluir-msg" >
+
+    <button class="btn btn-danger" *ngIf="postagem.hora" (click)="deletarMsg(postagem.hora)">Apagar mensagem</button>
+  </p>
+</div>

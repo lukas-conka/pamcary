@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light bg-light">
+
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+
+  <mat-menu #menu="matMenu">
+    <ng-container *ngFor="let opcoes of menus">
+      <button routerLink="{{opcoes.rota}}" mat-menu-item>{{opcoes.nome}}</button>
+    </ng-container>
+  </mat-menu>
+
+</nav>

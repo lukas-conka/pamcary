@@ -1,0 +1,96 @@
+
+<div class="container">
+<form novalidate #formulario="ngForm" (ngSubmit)="confirmarCompra(formulario)" *ngIf="!sucessoCadastro">
+  <div class="form-group">
+
+    <input 
+    type="text" 
+    class="form-control" 
+    id="nome" 
+    placeholder="Nome"
+    name="nome"
+    required
+    ngModel
+    #inputNome="ngModel"
+    pattern="[a-zA-Z ]*"
+    >
+    <small *ngIf="inputNome.invalid && inputNome.touched" class="form-text text-danger">Nome inválido</small>
+
+  </div>
+  <div class="form-group">
+
+    <input 
+    type="text" 
+    class="form-control" 
+    id="titulo" 
+    placeholder="Titulo"
+    name="titulo"
+    required
+    ngModel
+    #inputTitulo="ngModel"
+    >
+    <small *ngIf="inputTitulo.invalid && inputTitulo.touched" class="form-text text-danger">Preencher Titulo</small>
+
+  </div>
+  <div class="form-group">
+    <input 
+    type="email" 
+    class="form-control" 
+    id="email"  
+    name="email"
+    placeholder="Seu email"
+    ngModel
+    email
+    required
+    #inputEmail="ngModel"
+    >
+    <small *ngIf="inputEmail.invalid && inputEmail.touched" class="form-text text-danger">Preencha um email válido</small>
+
+  </div>
+  <div class="form-group">
+    <input 
+    type="text" 
+    class="form-control" 
+    name="telefone"
+    id="telefone"  
+    placeholder="11 00000-0000"
+    ngModel
+    #inputTelefone="ngModel"
+    mask="00 00000-0000"
+    >
+
+  </div>
+  <div class="form-group">
+    <select name="assunto"   #inputAssunto="ngModel" ngModel class="custom-select" required>
+        <option value="">Escolha um assunto</option>
+      <ng-container *ngFor="let assunto of assuntos">
+          
+          <option value="{{assunto.nome}}">{{assunto.nome}}</option>
+      </ng-container>
+    
+    </select>
+  </div>
+  <small *ngIf="inputAssunto.invalid && inputAssunto.touched" class="form-text text-danger">Selecione um assunto</small>
+
+  <div class="form-group">
+
+    <textarea 
+    class="form-control" 
+    name="mensagem"
+    id="mensagem" 
+    rows="3"
+    ngModel
+    required
+    maxlength="500"
+    #inputMensagem="ngModel"
+    >Mensagem</textarea>
+  <small>{{inputMensagem.value.length}} / 500</small>
+  <small *ngIf="inputMensagem.invalid && inputMensagem.touched" class="form-text text-danger">Preencha uma mensagem</small>
+  </div>
+  <button type="submit" [disabled]="inputAssunto.invalid || inputEmail.invalid || inputNome.invalid || inputMensagem.invalid" class="btn btn-primary">Enviar</button>
+</form>
+<div class="msg-sucesso" *ngIf="sucessoCadastro">
+  <p>Mensagem enviada com sucesso!</p>
+  <a routerLink="/">Visualizar mensagens</a>
+</div>
+</div>
